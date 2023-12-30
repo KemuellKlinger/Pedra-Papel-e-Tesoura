@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Resultado</h1>
+    <p id="result"></p>
+    <p id="jog"></p>
+    
+    <script>
+        let computador = Math.floor(Math.random() * 3) + 1;
+        let p = document.getElementById('result');
+        let p2 = document.getElementById('jog');
+
+        let jogador = Number(
+            prompt("Digite [1] para pedra [2] para papel e [3] para tesoura")
+        );
+
+        if (jogador === 1) {
+            jogador = "pedra";
+        } else if (jogador === 2) {
+            jogador = "papel";
+        } else {
+            jogador = "tesoura";
+        }
+
+        if (computador === 1) {
+            computador = "pedra";
+        } else if (computador === 2) {
+            computador = "papel";
+        } else {
+            computador = "tesoura";
+        }
+
+        if (jogador === computador) {
+            p.innerText = "Deu empate";
+        } else if (jogador === "pedra" && computador === "papel") {
+            p.innerText = "A máquina ganhou";
+        } else if (jogador === "pedra" && computador === "tesoura") {
+            p.innerText = "O jogador ganhou";
+        } else if (jogador === "papel" && computador === "pedra") {
+            p.innerText = "O jogador ganhou";
+        } else if (jogador === "papel" && computador === "tesoura") {
+            p.innerText = "A máquina ganhou";
+        } else if (jogador === "tesoura" && computador === "pedra") {
+            p.innerText = "A máquina ganhou";
+        } else {
+            p.innerText = "O jogador ganhou";
+        }
+
+        p2.innerHTML = `A máquina jogou ${computador}. O jogador jogou ${jogador}.`;
+
+    </script>
+</body>
+
+</html>
